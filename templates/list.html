@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<h2><b>RESUME LIST</b></h2>
+
+<div style="text-align:center;">
+    <a href="{% url 'create' %}">CREATE YOUR RESUME HERE</a>
+</div>
+
+<br><br>
+
+<table  class="tab" border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Download</th>
+    </tr>
+
+    {% for r in resumes %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ r.name }}</td>
+
+       <td>
+    <a href="{% url 'view' r.id %}">View</a>
+</td>   
+
+        <td>
+            <a href="{% url 'edit' r.id %}">Edit</a>
+        </td>
+
+        <td>
+            <a href="{% url 'delete' r.id %}"
+               onclick="return confirm('Are you sure you want to delete?');">
+               Delete
+            </a>
+        </td>
+
+        <td>
+            <a href="{% url 'download' r.id %}">Download</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background:whitesmoke;   /* ✅ white background */
+    margin: 0;
+}
+
+/* Center container */
+.container {
+    width: 50%;
+    margin: 50px auto;   /* ✅ center horizontally */
+    background: white;
+    padding: 30px;
+    border: 1px solid #ccc;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+}
+
+/* Section spacing */
+h3 {
+    margin-top: 20px;
+}
+
+/* Inputs */
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #999;
+}
+
+/* Button */
+button {
+    padding: 8px 15px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Resume Container (A4 Style) */
+.resume {
+    width: 800px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 40px;
+
+    /*  BORDER */
+    border: 2px solid #000;
+
+    /* Optional shadow for screen */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin-bottom: 5px;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.header p {
+    font-size: 14px;
+}
+
+/* Sections */
+.section {
+    margin-top: 20px;
+}
+
+.section h2 {
+    font-size: 16px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+
+/* Lists */
+ul {
+    margin-left: 20px;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+/* Paragraph */
+p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Download button */
+.download {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.download a {
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    text-decoration: none;
+}
+@media print {
+    body {
+        background: white;
+    }
+
+    .resume {
+        border: 2px solid black;
+        box-shadow: none;
+        margin: 0;
+        width: 100%;
+    }
+
+    .download {
+        display: none; /* hide button in PDF */
+    }
+}
+
+h3 {
+    font-size: 16px;
+    border-bottom: 1px solid black !important;  /* ✅ underline */
+    padding-bottom: 3px;
+    margin-top: 15px;
+}
+
+.tab{
+   
+    width:50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}

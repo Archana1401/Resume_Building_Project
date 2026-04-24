@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <style>
+    @page {
+        size: A4;
+        margin: 8mm;
+    }
+
+    body {
+        font-family: Arial;
+        font-size: 10px;
+        line-height: 1.3;
+    }
+
+    /* 🔥 REMOVE ALL DEFAULT BORDERS */
+    * {
+        border: none !important;
+        outline: none !important;
+    }
+
+    /* ✅ ONLY OUTER BORDER */
+    .resume {
+        border: 1px solid black !important;
+        padding: 10px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .contact {
+        text-align: center;
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+
+    h2 {
+        font-size: 11px;
+        margin-top: 8px;
+        margin-bottom: 3px;
+        border-bottom: 1px solid black;
+    }
+
+    p {
+        margin: 2px 0;
+    }
+
+    ul {
+        margin: 2px 0 2px 15px;
+        padding: 0;
+        list-style-type: disc;
+    }
+
+    li {
+        margin-bottom: 2px;
+    }
+
+    .project-title {
+        font-weight: bold;
+        margin-top: 4px;
+    }
+</style>
+</head>
+
+<body>
+<div class="resume">
+
+    <!-- NAME -->
+    <h1>{{ resume.name }}</h1>
+
+    <!-- CONTACT -->
+    <div class="contact">
+        {{ resume.phone }} | {{ resume.email }} <br>
+        {{ resume.linkedin }} | {{ resume.github }}
+    </div>
+
+    <!-- CAREER OBJECTIVE -->
+    <h2>CAREER OBJECTIVE</h2>
+    <p>{{ resume.career_objective }}</p>
+
+    <!-- EDUCATION -->
+    <h2>EDUCATION</h2>
+    <p>{{ resume.education }}</p>
+
+    <!-- TECHNICAL SKILLS -->
+    <h2>TECHNICAL SKILLS</h2>
+    <ul>
+        {% for skill in resume.technical_skills.splitlines %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- PROJECTS -->
+    <h2>PROJECTS</h2>
+
+    {% for line in resume.projects.splitlines %}
+        {% if ":" in line %}
+            <p class="project-title">{{ line }}</p>
+        {% else %}
+            <ul>
+                <li>{{ line }}</li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+
+    <!-- CERTIFICATIONS -->
+    <h2>CERTIFICATIONS</h2>
+    <ul>
+        {% for cert in resume.certifications.splitlines %}
+        <li>{{ cert }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- SOFT SKILLS -->
+    <h2>SOFT SKILLS</h2>
+    <ul>
+        {% for skill in resume.soft_skills.splitlines %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+
+</div>
+</body>
+</html>
